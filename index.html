@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Home Page -->
+  <div class="container" id="homePage">
+    <h1>📝 To-Do List Application</h1>
+    <p>Manage your daily tasks efficiently, mark them done, reschedule, or delete when not needed. Stay productive!</p>
+    <button onclick="goToTodo()" class="primary-btn">Get Started</button>
+  </div>
+
+  <!-- Main To-Do Page -->
+  <div class="container" id="todoPage" style="display:none;">
+    <h2>🧾 Your Tasks</h2>
+    <div class="task-input">
+      <input type="text" id="taskInput" placeholder="Enter a new task..." />
+      <input type="datetime-local" id="taskDateTime" />
+      <button onclick="addTask()">Add Task</button>
+    </div>
+    <ul id="taskList"></ul>
+    <h3>✅ Completed Tasks</h3>
+    <ul id="completedList"></ul>
+  </div>
+
+  <!-- Completion Page -->
+  <div class="container center" id="completionPage" style="display:none;">
+    <h1>🎉 Woah!!! <span id="completedTaskName"></span> Completed!!!</h1>
+    <button onclick="goToTodo()" class="primary-btn">Back</button>
+  </div>
+
+  <!-- Reschedule Page -->
+  <div class="container center" id="reschedulePage" style="display:none;">
+    <h1>🔁 <span id="rescheduleMsg"></span></h1>
+    <button onclick="goToTodo()" class="primary-btn">Back</button>
+  </div>
+
+  <!-- Delete Page -->
+  <div class="container center" id="deletePage" style="display:none;">
+    <h1>❌ Oops! <span id="deletedTaskName"></span> deleted from the list.</h1>
+    <button onclick="goToTodo()" class="primary-btn">Back</button>
+  </div>
+
+  <!-- Final Completion Page -->
+  <div class="container center" id="allDonePage" style="display:none;">
+    <h1>🎊 Woah!!! Well Done! All tasks are completed</h1>
+    <button onclick="goToHome()" class="primary-btn">Start Again</button>
+  </div>
+
+  <!-- Reschedule Modal -->
+  <div id="rescheduleModal" class="modal">
+    <div class="modal-content">
+      <h2>Reschedule Task</h2>
+      <p><strong>Task:</strong> <span id="modalTaskName"></span></p>
+      <p><strong>Old Date:</strong> <span id="modalOldDate"></span></p>
+      <input type="datetime-local" id="newDateInput" />
+      <br />
+      <button onclick="confirmReschedule()">Confirm</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
